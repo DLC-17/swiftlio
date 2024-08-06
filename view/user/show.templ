@@ -1,9 +1,12 @@
 package user
 
-import "github.com/kelbwah/swiftlio/layout"
+import (
+    "github.com/kelbwah/swiftlio/view/layout"
+    "github.com/kelbwah/swiftlio/model"
+)
 
-templ Show() {
+templ Show(user model.User) {
     @layout.Base() {
-        <h1>Hello! This is the user page</h1>
+        <h1 class="text-blue-500 text-5xl">Hello {user.Email}! This is the user pages</h1>
     }
 }

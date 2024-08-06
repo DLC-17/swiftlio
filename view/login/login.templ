@@ -1,0 +1,21 @@
+package login
+
+import "github.com/kelbwah/swiftlio/view/layout"
+
+templ Show() {
+    @layout.Base() {
+        <div class="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center gap-6">
+            <section class="flex flex-col items-center gap-4">
+                <div class="text-center">
+                    <h1 class="mb-2 font-bold text-3xl md:text-4xl leading-tight scroll-m-20">Welcome!</h1>
+                    <p class="text-gray-200">Enter your SMC email to get started.</p>
+                </div>
+                <form class="text-center flex flex-col gap-3">
+                    <input id="email" placeholder="Enter your stmarys-ca.edu email" class="text-black rounded-lg py-4 px-4" type="email" />
+                    <label for="email" class="text-sm text-gray-300">Note: This service is for SMC students only.</label>
+                    <button type="submit" class="font-semibold bg-blue-500 hover:bg-blue-600 active:bg-blue-700 py-2.5 px-4 rounded-lg ease-in-out duration-200">Verify</button>
+                </form>
+            </section>
+        </div>
+    }
+}
