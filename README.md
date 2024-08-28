@@ -20,7 +20,7 @@ A assignment tracking application for SMC students written in Go + HTMX + Templ 
     - `Make templ` Generates the templ/go files and outputs the proxy URL that you will use to see hot reloaded changes.
 
 ## Contributing
-- Refer to [CONTRIBUTING.md](https://github.com/kelbwah/swiftlio/CONTRIBUTING.md) for more. 
+- Refer to [CONTRIBUTING.md](https://github.com/kelbwah/swiftlio/blob/master/CONTRIBUTING.md) for more. 
 
 ## Bugs/Feedback
 - Create an issue in this repo if you have any changes you want to make or found any bugs.
