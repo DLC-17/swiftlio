@@ -13,6 +13,7 @@ A assignment tracking application for SMC students written in Go + HTMX + Templ 
     - `Make build` This command builds the whole project into a single binary in the `./bin/` folder.
     - `Make tailwind` This command uses the Tailwind CLI to generate and watch for css changes.
     - `Make templ` This command helps generate and parse the templ files and outputs the proxy URL that you can use to see changes
+    - `Make test` Tests all directories and files with `*_test.go`
 5. Note: Currently, you would need to open three different terminal windows/tabs and run these commands from the root of the project to get it working with hot reloading:
     - `air` Running this in one terminal will allow `air` to listen in on chosen files/directories as specified in the `air.toml`.
     - `Make tailwind` Watches for CSS changes 
