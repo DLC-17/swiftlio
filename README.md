@@ -8,6 +8,7 @@ A assignment tracking application for SMC students written in Go + HTMX + Templ 
    - [Golang](https://go.dev/doc/install)
    - [Taliwind CLI](https://tailwindcss.com/blog/standalone-cli)
    - [Air](https://github.com/air-verse/air)
+   - [Templ](https://templ.guide/quick-start/installation)
 2. Fork the repo and clone it `git clone https://github.com/[your username]/swiftlio.git && cd swiftlio`
 3. Make any local changes.
 4. Run/Build/Test your changes using the Makefile in the root of the project.
