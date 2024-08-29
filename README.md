@@ -4,7 +4,7 @@ A assignment tracking application for SMC students written in Go + HTMX + Templ 
 
 ## How to run locally:
 
-1. You must install three things:
+1. You must install four things:
    - [Golang](https://go.dev/doc/install)
    - [Taliwind CLI](https://tailwindcss.com/blog/standalone-cli)
    - [Air](https://github.com/air-verse/air)
