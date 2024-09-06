@@ -1,3 +1,10 @@
+# --- Loading .env vars ---
+ifneq (,$(wildcard ./.env))
+    include .env
+    export
+endif
+
+# --- Make targets ---
 .PHONY: dev
 
 air:
@@ -17,3 +24,9 @@ test:
 
 dev:
 	make -j3 air templ tailwind
+
+db-up:
+	@cd internal/sql/schema && goose postgres $(DATABASE_URL) up
+
+db-down:
+	@cd internal/sql/schema && goose postgres $(DATABASE_URL) down

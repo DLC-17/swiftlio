@@ -2,12 +2,11 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
 
 	"github.com/joho/godotenv"
-	"github.com/kelbwah/swiftlio/routes"
+	"github.com/kelbwah/swiftlio/internal/routes"
 	"github.com/labstack/echo/v4"
 	_ "github.com/lib/pq"
 )
@@ -26,25 +25,18 @@ func main() {
 		log.Fatalf("Error loading .env file %v\n", envErr)
 	}
 
-	// DB Setup
 	var (
-		localPort  = os.Getenv("LOCALHOST_PORT")
-		pgHost     = os.Getenv("PGHOST")
-		pgPort     = os.Getenv("PGPORT")
-		pgUser     = os.Getenv("PGUSER")
-		pgPassword = os.Getenv("PGPASSWORD")
-		pgName     = os.Getenv("PGNAME")
+		dbUrl     = os.Getenv("DATABASE_URL")
+		localPort = os.Getenv("LOCALHOST_PORT")
 	)
-	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", pgHost, pgPort, pgUser, pgPassword, pgName)
-	db, err := sql.Open("postgres", psqlInfo)
+
+	// DB Setup
+	db, err := sql.Open("postgres", dbUrl)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
-	err = db.Ping()
-	if err != nil {
-		log.Fatal(err)
-	}
+	// dbQueries := database.New(db)
 
 	// Initializing echo
 	app := echo.New()
