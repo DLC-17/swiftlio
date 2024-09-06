@@ -1,8 +1,7 @@
 swiftlio
 .DS_Store
 .env
-tmp
-bin
+build-errors.log
 *templ.txt
 *templ.go
 docker-compose.yml
