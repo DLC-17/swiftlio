@@ -2,8 +2,7 @@
 FROM golang:1.23-alpine AS go-builder
 
 # Install make utility
-RUN apk add --no-cache make
-RUN apk add --no-cache curl 
+RUN apk add --no-cache make curl
 
 WORKDIR /app
 
@@ -16,11 +15,8 @@ RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/downlo
 # Copy go.mod and go.sum first to leverage Docker cache for dependency download
 COPY go.mod go.sum ./
 
-# Install Go dependencies
-RUN go mod download \ 
-    && go mod tidy
+RUN go mod download && go mod tidy
 
-# Install additional Go tools (air and templ)
 RUN go install github.com/air-verse/air@latest \
     && go install github.com/a-h/templ/cmd/templ@latest
 
