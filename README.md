@@ -9,18 +9,19 @@ A assignment tracking application for SMC students written in Go + HTMX + Templ 
    - [Taliwind CLI](https://tailwindcss.com/blog/standalone-cli)
    - [Air](https://github.com/air-verse/air)
    - [Templ](https://templ.guide/quick-start/installation)
+   - [Docker](https://www.docker.com/products/docker-desktop/)
 2. Fork the repo and clone it `git clone https://github.com/[your username]/swiftlio.git && cd swiftlio`
 3. Make any local changes.
-4. Run/Build/Test your changes using the Makefile in the root of the project.
+4. (Individual Make Commands) Run/Build/Test your changes using the Makefile in the root of the project.
    - `make run` This command calls the `build` command and then runs the binary which resides in the `./bin/` directory.
    - `make build` This command builds the whole project into a single binary in the `./bin/` folder.
    - `make tailwind` This command uses the Tailwind CLI to generate and watch for css changes.
    - `make templ` This command helps generate and parse the templ files and outputs the proxy URL that you can use to see changes
    - `make test` Tests all directories and files with `*_test.go`
-5. Note: Currently, you would need to open three different terminal windows/tabs and run these commands from the root of the project to get it working with hot reloading:
-   - `air` Running this in one terminal will allow `air` to listen in on chosen files/directories as specified in the `air.toml`.
-   - `make tailwind` Watches for CSS changes
-   - `make templ` Generates the templ/go files and outputs the proxy URL that you will use to see hot reloaded changes.
+5. Bootstrapping project with hot reloading for development
+   - Create a `.env` file in the root. Copy and paste `.env_example` contents into `.env` and change env vars to your desired values.
+   - Similarly, create a `docker-compose.yml` file in the root. You can simply copy and paste the contents from `docker-compose-sample.yml` into the `docker-compose.yml` file or change the ports if needed.
+   - Then run `docker-compose up`. Running this (assuming you have docker and docker-compose) will successfully load the project. The default proxy URL is set to `127.0.0.1:7331` and any API calls come from `localhost:6969`. Change the ports if needed.
 
 ## Contributing
 
