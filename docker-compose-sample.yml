@@ -8,5 +8,5 @@ services:
       - "6969:6969" # Or use whatever port you decide to use here
       - "7331:7331" # Or use whatever proxy you change in the templ generate cmd
     volumes:
-      - .:/app # Mounts the current directory to /swiftlio inside the container
+      - .:/app
     command: make dev
