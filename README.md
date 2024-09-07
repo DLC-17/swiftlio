@@ -29,7 +29,7 @@ A assignment tracking application for SMC students written in Go + HTMX + Templ 
 
 ### Without Docker Compose:
 
-1. You must install three things to enable live hot-reloading while developing:
+1. You must install three things to enable live hot-reloading while developing without docker-compose:
    - [Taliwind CLI](https://tailwindcss.com/blog/standalone-cli)
    - [Air](https://github.com/air-verse/air)
    - [Templ](https://templ.guide/quick-start/installation)
