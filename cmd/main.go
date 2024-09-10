@@ -25,10 +25,8 @@ func main() {
 		log.Fatalf("Error loading .env file %v\n", envErr)
 	}
 
-	var (
-		dbUrl     = os.Getenv("DATABASE_URL")
-		localPort = os.Getenv("LOCALHOST_PORT")
-	)
+	dbUrl := os.Getenv("DATABASE_URL")
+	// localPort = os.Getenv("LOCALHOST_PORT")
 
 	// DB Setup
 	db, err := sql.Open("postgres", dbUrl)
@@ -42,5 +40,5 @@ func main() {
 	app := echo.New()
 	routes.Init(app)
 
-	app.Start("0.0.0.0" + localPort)
+	app.Start("0.0.0.0:6969")
 }
