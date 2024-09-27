@@ -11,9 +11,11 @@ RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/downlo
 
 COPY go.mod go.sum ./
 
-RUN go mod download && go mod tidy
+RUN go mod download \
+    && go mod tidy
 
 RUN go install github.com/air-verse/air@latest \
-    && go install github.com/a-h/templ/cmd/templ@latest
+    && go install github.com/a-h/templ/cmd/templ@latest \
+    && go get -u github.com/a-h/templ
 
 COPY . .

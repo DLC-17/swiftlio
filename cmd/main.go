@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"os"
 
@@ -11,22 +12,16 @@ import (
 	_ "github.com/lib/pq"
 )
 
-type DB struct {
-	Host     string
-	Port     string
-	User     string
-	Password string
-	DbName   string
-}
-
 func main() {
 	// Loading env vars
 	if envErr := godotenv.Load(); envErr != nil {
 		log.Fatalf("Error loading .env file %v\n", envErr)
 	}
 
-	dbUrl := os.Getenv("DATABASE_URL")
-	// localPort = os.Getenv("LOCALHOST_PORT")
+	var (
+		dbUrl     = os.Getenv("DATABASE_URL")
+		localPort = os.Getenv("LOCALHOST_PORT")
+	)
 
 	// DB Setup
 	db, err := sql.Open("postgres", dbUrl)
@@ -40,5 +35,11 @@ func main() {
 	app := echo.New()
 	routes.Init(app)
 
-	app.Start("0.0.0.0:6969")
+	echoErr := app.Start(localPort)
+	if echoErr != nil {
+		fmt.Printf("Error while starting echo: %s\n", echoErr.Error())
+		return
+	} else {
+		fmt.Println("Echo started successfully")
+	}
 }
